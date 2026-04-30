@@ -1,0 +1,8 @@
+.dev{
+  border: 1px solid salmon;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+}

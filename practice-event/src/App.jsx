@@ -1,5 +1,6 @@
 
 import './App.css'
+import BatsMan from './BatsMan'
 import CounterUp from './counterUp'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       {/* fourth method */}
       <button onClick={() => { alert('clicked me  four') }}>fourthBtn</button>
       <CounterUp></CounterUp>
+      <BatsMan></BatsMan>
     </>
   )
 }

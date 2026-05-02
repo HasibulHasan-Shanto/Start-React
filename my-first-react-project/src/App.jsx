@@ -41,7 +41,7 @@ function AnotherInformation(props) {
 }
 
 function Premium({name, isPremium}){
-  return (
+ return (
     <div className='premium'>
       <h1>
         Name: {name}

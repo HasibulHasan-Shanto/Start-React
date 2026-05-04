@@ -1,0 +1,26 @@
+.parent{
+    /* display: flex; */
+    /* align-items: center; */
+    /* gap: 10px; */
+    margin-bottom: 20px;
+    background-color: red;
+    width: 400px;
+    height: 350px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: full;  /* Lebar */
+    height: 100px; /* Tinggi sama dengan lebar */
+    object-fit: cover; /* Menjaga gambar agar tidak gepeng */
+}
+.countries{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.visited{
+    background-color: pink;
+}

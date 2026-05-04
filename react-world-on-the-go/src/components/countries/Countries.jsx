@@ -4,16 +4,16 @@ import Country from "../Country/Country";
 const Countries = ({ fetchCountries }) => {
     const countriesData = use(fetchCountries)
     const countries = countriesData.countries
-    const [visitedCountries, setVisitedCountries] = useState(0)
-    const handleCountVisit = () => {
-        console.log('visited country')
-        const newVisit = visitedCountries + 1
+    const [visitedCountries, setVisitedCountries] = useState([])
+    const handleCountVisit = (country) => {
+        console.log('visited country', country)
+        const newVisit = [... visitedCountries, country]
         setVisitedCountries(newVisit)
     }
     return (
         <>
             <h1>All countries are {countries.length}</h1>
-            <strong>Visited countries <span onClick={setVisitedCountries}>0</span></strong>
+            <strong>Visited countries  {visitedCountries.length}</strong>
             <div className="countries">
                 {
                     countries.map(country =><Country 

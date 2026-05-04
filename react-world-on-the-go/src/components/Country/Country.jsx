@@ -6,7 +6,7 @@ const Country = ({ country, handleCountVisit }) => {
     const handleVisited = ()=>{
         console.log('visited')
         setVisited(!visited)
-        handleCountVisit()
+        handleCountVisit(country)
     }
 
     

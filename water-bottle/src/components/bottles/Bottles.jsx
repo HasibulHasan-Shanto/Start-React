@@ -1,10 +1,14 @@
-import { use } from "react";
+import { use, useState } from "react";
 import Bottle from "./Bottle";
 
 
 const Bottles = ({ fetchBottle }) => {
     const bottles = use(fetchBottle)
-    console.log(bottles)
+    // console.log(bottles)
+    const [cart, setCart] = useState([])
+    const handleAddToCart = (bottle) => {
+        console.log('add to cart done', bottle)
+    }
     return (
         <div>
            <h1>
@@ -14,6 +18,7 @@ const Bottles = ({ fetchBottle }) => {
                 bottles.map(bottle => <Bottle
                     key={bottles.id}
                     bottle={bottle}
+                    handleAddToCart={handleAddToCart}
                 ></Bottle>)
            }
         </div>

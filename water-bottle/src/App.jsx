@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import './App.css'
 import Bottles from './components/bottles/Bottles'
 
-const fetchBottle = fetch('../public/bottle.json')
+const fetchBottle = fetch('/bottle.json')
 .then(res => res.json())
 
 function App() {

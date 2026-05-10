@@ -22,3 +22,7 @@
     background-color: aqua;
     border-radius: 10px;
 }
+.card-2{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

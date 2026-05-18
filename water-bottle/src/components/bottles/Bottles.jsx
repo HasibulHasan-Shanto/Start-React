@@ -1,7 +1,8 @@
 import { use, useState } from "react";
 import Bottle from "./Bottle";
-import { addItemLocalStorage, getCartFromLocalStorage } from "../../utilities/LocalStorage";
-// import Cart from "../cart/Cart";
+import { addItemLocalStorage, getCartFromLocalStorage, removeFromLocalStorage } from "../../utilities/LocalStorage";
+import Cart from "../cart/Cart";
+
 
 const Bottles = ({ fetchBottle }) => {
     const bottles = use(fetchBottle);
@@ -25,7 +26,12 @@ const Bottles = ({ fetchBottle }) => {
         setCart(newCart);
         addItemLocalStorage(bottle.id);
     };
-
+    const handleRemoveFromCart = (id)=>{
+        console.log('remove item successful', id);
+        const remainingCart = cart.filter(bottle => bottle.id !== id)
+        setCart(remainingCart)
+        removeFromLocalStorage(id)
+    }
     return (
         <div>
             <h1>
@@ -35,8 +41,7 @@ const Bottles = ({ fetchBottle }) => {
                 Add to cart : {cart.length}
             </p>
 
-            {/* <Cart cart={cart}></Cart> */}
-
+            <Cart cart={cart} handleRemoveFromCart={handleRemoveFromCart}></Cart>
             <div className="grid grid-cols-3 gap-4">
                 {
                     bottles.map(bottle => (

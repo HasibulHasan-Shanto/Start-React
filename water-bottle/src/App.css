@@ -26,3 +26,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+.cart-container{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.cart-container img{
+    width: 100px;
+}

@@ -1,4 +1,6 @@
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
+import coin from '../../assets/Currency.png'
+
 
 const Header = () => {
     return (
@@ -27,9 +29,14 @@ const Header = () => {
                                 Schedules
                             </a>
                         </p>
-                        <button className='bg-gray-300 py-2 px-8 rounded-md font-bold text-[#131313] text-[16px]'>
-                            0 Coin
-                        </button>
+                        <div className='bg-gray-300 py-2 px-6 rounded-md font-bold text-[#131313] text-[16px] flex items-center gap-2'>
+                            <span>
+                                9000000
+                            </span>
+                            <span>
+                                <img src={coin} alt="" />
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

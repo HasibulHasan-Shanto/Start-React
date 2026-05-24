@@ -3,7 +3,7 @@ import banner from '../../assets/banner-main.png'
 const Banner = () => {
     return (
         <div
-            className="max-w-350 mx-auto py-16 bg-cover bg-center"
+            className="max-w-350 mx-auto py-16 bg-cover bg-center rounded-2xl"
             style={{ backgroundImage: `url(${bgShadow})` }}
         >
             <div className="text-center">

@@ -11,14 +11,15 @@ const fetchDate = async () => {
   const res = await fetch('/playerDate.json')
   return res.json()
 }
+const fetchPlayers = fetchDate()
 function App() {
 
-  const fetchPlayers = fetchDate()
   const [toggle, setToggle] = useState(true)
+  const [balance, setBalance] = useState(10000000)
   return (
     <>
 
-      <Header></Header>
+      <Header balance={balance}></Header>
       <Banner></Banner>
       <div className="max-w-350 mx-auto mt-15">
         <div className="flex items-center justify-between">
@@ -44,7 +45,7 @@ function App() {
       </div>
       {
         toggle === true ? <Suspense fallback={<h1>Loading...</h1>}>
-        <AvailablePlayers fetchPlayers={fetchPlayers}></AvailablePlayers>
+          <AvailablePlayers balance={balance} setBalance={setBalance} fetchPlayers={fetchPlayers}></AvailablePlayers>
       </Suspense>: <SelectedPlayers></SelectedPlayers>
       }
 

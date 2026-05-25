@@ -1,7 +1,17 @@
+import { useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { FaFlag } from "react-icons/fa6";
 
-const player = ({player}) => {
+const Player = ({ player, balance, setBalance }) => {
+    const [selected, setSelected] = useState(false)
+    const handlePrice = (player)=>{
+        if (balance < player.price) {
+            alert(`You don't have enough money`)
+            return
+        }
+        setSelected(true)
+        setBalance(balance - player.price)
+    }
     return (
         <div className="border border-gray-300 rounded-xl bg-[#ffffff] p-4 w-md">
             <img className="w-full h-60 rounded-2xl" src={player.playerImg} alt="" />
@@ -51,13 +61,14 @@ const player = ({player}) => {
                     <p className="font-bold text-xl text-[#131313]">
                         Price: $<span>{player.price}</span>
                     </p>
-                    <p className="border border-gray-300 px-2 py-2 rounded-md">
-                        Choose Player
-                    </p>
+                    <button onClick={() => { handlePrice(player)}}
+                        className={`border border-gray-300 px-2 py-2 rounded-md ${selected ? 'bg-red-500' : ''}`}>
+                        {selected === true ? 'Selected' : 'Choose Player'}
+                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default player;
+export default Player;

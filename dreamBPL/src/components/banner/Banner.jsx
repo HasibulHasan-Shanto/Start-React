@@ -14,8 +14,8 @@ const Banner = () => {
                 <p className='text-xl text-gray-500 font-medium'>
                     Beyond Boundaries Beyond Limits
                 </p>
-                <div className="inline-flex items-center justify-center p-1 rounded-md border border-[#E7FE29] mt-3">
-                    <button className="bg-[#E7FE29] text-black font-semibold text-2xl px-2 py-1 rounded-sm">
+                <div className="inline-flex items-center justify-center p-1 rounded-md border border-red-500 mt-3">
+                    <button className="bg-red-500 text-black font-semibold text-2xl px-2 py-1 rounded-sm">
                         Claim Free Credit
                     </button>
                 </div>

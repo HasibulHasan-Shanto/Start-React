@@ -2,7 +2,7 @@ import logo from '../../assets/logo.png'
 import coin from '../../assets/Currency.png'
 
 
-const Header = () => {
+const Header = ({ balance }) => {
     return (
         <div className='max-w-350 mx-auto bg-red-200'>
             <div className="flex items-center justify-between">
@@ -31,7 +31,7 @@ const Header = () => {
                         </p>
                         <div className='bg-gray-300 py-2 px-6 rounded-md font-bold text-[#131313] text-[16px] flex items-center gap-2'>
                             <span>
-                                9000000
+                                {balance}
                             </span>
                             <span>
                                 <img src={coin} alt="" />

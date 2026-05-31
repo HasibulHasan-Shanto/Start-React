@@ -16,6 +16,18 @@ function App() {
 
   const [toggle, setToggle] = useState(true)
   const [balance, setBalance] = useState(10000000)
+  const [count, setCount] = useState(0)
+  const [selectedPlayers, setSelectedPlayers] = useState([])
+  console.log(selectedPlayers);
+  const handleClick = () => {
+    const newCount = count + 1
+    if(newCount > 6){
+      alert(`You already Choose six players`)
+      return true
+    }
+    setCount(newCount)
+  }
+
   return (
     <>
 
@@ -25,19 +37,19 @@ function App() {
         <div className="flex items-center justify-between">
           <h3 className="text-2xl text-[#131313] font-bold">
             {
-              toggle === true ? `Available Players`: `Selected Player`
+              toggle === true ? `Available Players` : `Selected Player (${count}/6)`
             }
           </h3>
           <div className="flex items-center gap-2">
-            <button onClick={() => setToggle(true)} 
-            className={`${toggle === true ? 'bg-red-500': ''} px-8 py-2 rounded-sm border border-gray-300`}>
+            <button onClick={() => setToggle(true)}
+              className={`${toggle === true ? 'bg-red-500' : ''} px-8 py-2 rounded-sm border border-gray-300`}>
               Available
             </button>
             <button onClick={() => setToggle(false)}
               className={`${toggle === false ? 'bg-red-500' : ''} px-8 py-2 rounded-sm border border-gray-300`}>
               Selected
               <span>
-                (0)
+                ({count})
               </span>
             </button>
           </div>
@@ -45,8 +57,17 @@ function App() {
       </div>
       {
         toggle === true ? <Suspense fallback={<h1>Loading...</h1>}>
-          <AvailablePlayers balance={balance} setBalance={setBalance} fetchPlayers={fetchPlayers}></AvailablePlayers>
-      </Suspense>: <SelectedPlayers></SelectedPlayers>
+          <AvailablePlayers
+            fetchPlayers={fetchPlayers}
+            balance={balance}
+            setBalance={setBalance}
+            handleClick={handleClick}
+            selectedPlayers={selectedPlayers}
+            setSelectedPlayers={setSelectedPlayers}
+          ></AvailablePlayers>
+        </Suspense> : <SelectedPlayers
+          selectedPlayers={selectedPlayers}
+        ></SelectedPlayers>
       }
 
     </>

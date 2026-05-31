@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { FaFlag } from "react-icons/fa6";
 
-const Player = ({ player, balance, setBalance }) => {
+const Player = ({ player, balance, setBalance, handleClick, selectedPlayers, setSelectedPlayers }) => {
     const [selected, setSelected] = useState(false)
     const handlePrice = (player)=>{
         if (balance < player.price) {
@@ -11,6 +11,9 @@ const Player = ({ player, balance, setBalance }) => {
         }
         setSelected(true)
         setBalance(balance - player.price)
+    }
+    const handleSelectedPlayers = (player)=>{
+        setSelectedPlayers([...selectedPlayers, player])
     }
     return (
         <div className="border border-gray-300 rounded-xl bg-[#ffffff] p-4 w-md">
@@ -61,7 +64,11 @@ const Player = ({ player, balance, setBalance }) => {
                     <p className="font-bold text-xl text-[#131313]">
                         Price: $<span>{player.price}</span>
                     </p>
-                    <button onClick={() => { handlePrice(player)}}
+                    <button player={player} onClick={() => { 
+                        handlePrice(player)
+                        handleClick()
+                        handleSelectedPlayers(player)
+                    }}
                         className={`border border-gray-300 px-2 py-2 rounded-md ${selected ? 'bg-red-500' : ''}`}>
                         {selected === true ? 'Selected' : 'Choose Player'}
                     </button>

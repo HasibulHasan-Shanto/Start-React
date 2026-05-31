@@ -1,7 +1,7 @@
 import { use } from "react";
 import Player from "../player/Player";
 
-const AvailablePlayers = ({ fetchPlayers, balance, setBalance }) => {
+const AvailablePlayers = ({ fetchPlayers, balance, setBalance, handleClick, selectedPlayers, setSelectedPlayers }) => {
     const players = use(fetchPlayers)
     // console.log(players);
     return (
@@ -10,10 +10,13 @@ const AvailablePlayers = ({ fetchPlayers, balance, setBalance }) => {
                 {
                     players.map(player => (
                         <Player
-                        setBalance={setBalance}
-                        balance={balance} 
-                        player={player}
-                        key={player.id}
+                            selectedPlayers={selectedPlayers}
+                            setSelectedPlayers={setSelectedPlayers}
+                            handleClick={handleClick}
+                            setBalance={setBalance}
+                            balance={balance}
+                            player={player}
+                            key={player.id}
                         ></Player>
                     ))
                 }

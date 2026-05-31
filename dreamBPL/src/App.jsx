@@ -5,7 +5,7 @@ import AvailablePlayers from './components/availablePlayers/AvailablePlayers'
 import Banner from './components/banner/Banner'
 import Header from './components/header/Header'
 import SelectedPlayers from './components/selectedPlayers/SelectedPlayers'
-
+import { ToastContainer } from 'react-toastify';
 
 const fetchDate = async () => {
   const res = await fetch('/playerDate.json')
@@ -16,16 +16,14 @@ function App() {
 
   const [toggle, setToggle] = useState(true)
   const [balance, setBalance] = useState(10000000)
-  const [count, setCount] = useState(0)
+
   const [selectedPlayers, setSelectedPlayers] = useState([])
   console.log(selectedPlayers);
-  const handleClick = () => {
-    const newCount = count + 1
-    if(newCount > 6){
-      alert(`You already Choose six players`)
-      return true
-    }
-    setCount(newCount)
+
+  const removePlayer = (p) => {
+    const filterPlayer = selectedPlayers.filter(ply => ply.playerName !== p.playerName)
+    setSelectedPlayers(filterPlayer)
+    setBalance(balance + p.price)
   }
 
   return (
@@ -37,7 +35,7 @@ function App() {
         <div className="flex items-center justify-between">
           <h3 className="text-2xl text-[#131313] font-bold">
             {
-              toggle === true ? `Available Players` : `Selected Player (${count}/6)`
+              toggle === true ? `Available Players` : `Selected Player (${selectedPlayers.length}/6)`
             }
           </h3>
           <div className="flex items-center gap-2">
@@ -49,7 +47,7 @@ function App() {
               className={`${toggle === false ? 'bg-red-500' : ''} px-8 py-2 rounded-sm border border-gray-300`}>
               Selected
               <span>
-                ({count})
+                ({selectedPlayers.length})
               </span>
             </button>
           </div>
@@ -61,16 +59,17 @@ function App() {
             fetchPlayers={fetchPlayers}
             balance={balance}
             setBalance={setBalance}
-            handleClick={handleClick}
             selectedPlayers={selectedPlayers}
             setSelectedPlayers={setSelectedPlayers}
           ></AvailablePlayers>
         </Suspense> : <SelectedPlayers
           selectedPlayers={selectedPlayers}
+          removePlayer={removePlayer}
         ></SelectedPlayers>
       }
-
+      <ToastContainer />
     </>
+
   )
 }
 

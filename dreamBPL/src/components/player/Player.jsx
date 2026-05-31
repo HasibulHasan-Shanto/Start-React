@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { FaFlag } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
-const Player = ({ player, balance, setBalance, handleClick, selectedPlayers, setSelectedPlayers }) => {
+const Player = ({ player, balance, setBalance, selectedPlayers, setSelectedPlayers }) => {
     const [selected, setSelected] = useState(false)
-    const handlePrice = (player)=>{
+    const handlePrice = (player) => {
         if (balance < player.price) {
             alert(`You don't have enough money`)
             return
@@ -12,7 +13,11 @@ const Player = ({ player, balance, setBalance, handleClick, selectedPlayers, set
         setSelected(true)
         setBalance(balance - player.price)
     }
-    const handleSelectedPlayers = (player)=>{
+    const handleSelectedPlayers = (player) => {
+        if (selectedPlayers.length === 6) {
+            toast("You already choose six players")
+            return true
+        }
         setSelectedPlayers([...selectedPlayers, player])
     }
     return (
@@ -64,11 +69,12 @@ const Player = ({ player, balance, setBalance, handleClick, selectedPlayers, set
                     <p className="font-bold text-xl text-[#131313]">
                         Price: $<span>{player.price}</span>
                     </p>
-                    <button player={player} onClick={() => { 
-                        handlePrice(player)
-                        handleClick()
-                        handleSelectedPlayers(player)
-                    }}
+                    <button player={player}
+                        disabled={selected}
+                        onClick={() => {
+                            handlePrice(player)
+                            handleSelectedPlayers(player)
+                        }}
                         className={`border border-gray-300 px-2 py-2 rounded-md ${selected ? 'bg-red-500' : ''}`}>
                         {selected === true ? 'Selected' : 'Choose Player'}
                     </button>

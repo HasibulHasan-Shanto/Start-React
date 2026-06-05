@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "name": "Basic",
+        "price": 9,
+        "duration": "per month",
+        "description": "Perfect for individuals and beginners.",
+        "features": [
+            "1 Website",
+            "10 GB SSD Storage",
+            "Free SSL Certificate",
+            "Basic Email Support"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Standard",
+        "price": 29,
+        "duration": "per month",
+        "description": "Ideal for freelancers and small businesses.",
+        "features": [
+            "10 Websites",
+            "100 GB SSD Storage",
+            "Priority Support",
+            "Daily Backups",
+            "Free Domain"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Premium",
+        "price": 59,
+        "duration": "per month",
+        "description": "Advanced features for growing teams.",
+        "features": [
+            "50 Websites",
+            "500 GB SSD Storage",
+            "24/7 Support",
+            "Daily Backups",
+            "Advanced Analytics"
+        ]
+    }
+]

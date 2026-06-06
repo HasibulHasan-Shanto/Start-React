@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import './App.css'
 import Header from './components/header/Header'
 import PriceCards from './components/priceCards/PriceCards'
+import Rechart from './components/Rechart/Rechart'
 
 
 
@@ -17,6 +18,7 @@ function App() {
         {/* <PriceCards fetchPrice={fetchPrice}></PriceCards> */}
         <PriceCards fetchPrice={fetchPrice}></PriceCards>
       </Suspense>
+      <Rechart></Rechart>
     </>
   )
 }

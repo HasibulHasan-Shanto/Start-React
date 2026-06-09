@@ -1,4 +1,4 @@
-import { NavLink } from "react-router"; 
+import { NavLink } from "react-router";
 
 const Header = () => {
     return (
@@ -21,6 +21,16 @@ const Header = () => {
                     <li>
                         <NavLink to='/laptops'>
                             Laptops
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/User1'>
+                            User1
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/User2'>
+                            User2
                         </NavLink>
                     </li>
                 </ul>

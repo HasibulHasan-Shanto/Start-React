@@ -1,11 +1,14 @@
 import { useLoaderData } from "react-router";
+import User from "../User/User";
 
 const User1 = () => {
     const users = useLoaderData()
-    console.log('this is user loader data', users);
+    // console.log('this is user loader data', users);
     return (
         <div>
-            <h1>this users 1</h1>
+            {
+                users.map(user => <User key={user.id} user={user}></User>)
+            }
         </div>
     );
 };

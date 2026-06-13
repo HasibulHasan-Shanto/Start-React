@@ -33,6 +33,11 @@ const Header = () => {
                             User2
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/Posts'>
+                            Posts
+                        </NavLink>
+                    </li>
                 </ul>
                 <button className="bg-green-300 px-5 py-1 rounded-md">
                     Click me

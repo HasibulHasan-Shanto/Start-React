@@ -1,6 +1,7 @@
 
 import './App.css'
-import ShortCutForm from './components/ShortCutForm/ShortCutForm'
+import ProductManagement from './components/ProductManagement/ProductManagement'
+// import ShortCutForm from './components/ShortCutForm/ShortCutForm'
 // import ControlField from './components/ControlField/ControlField'
 // import UnControlField from './components/UnControlField/UnControlField'
 // import FormAction from './components/FormAction/FormAction'
@@ -17,7 +18,8 @@ function App() {
       {/* <FormAction></FormAction> */}
       {/* <ControlField></ControlField> */}
       {/* <UnControlField></UnControlField> */}
-      <ShortCutForm></ShortCutForm>
+      {/* <ShortCutForm></ShortCutForm> */}
+      <ProductManagement></ProductManagement>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 
 import './App.css'
-import ProductManagement from './components/ProductManagement/ProductManagement'
+import FamilyTree from './components/FamilyTree/FamilyTree'
+// import ProductManagement from './components/ProductManagement/ProductManagement'
 // import ShortCutForm from './components/ShortCutForm/ShortCutForm'
 // import ControlField from './components/ControlField/ControlField'
 // import UnControlField from './components/UnControlField/UnControlField'
@@ -19,7 +20,8 @@ function App() {
       {/* <ControlField></ControlField> */}
       {/* <UnControlField></UnControlField> */}
       {/* <ShortCutForm></ShortCutForm> */}
-      <ProductManagement></ProductManagement>
+      {/* <ProductManagement></ProductManagement> */}
+      <FamilyTree></FamilyTree>
     </div>
   )
 }

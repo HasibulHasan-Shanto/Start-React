@@ -10,3 +10,28 @@ table, th, td {
 th, td {
     padding: 10px;
 }
+.family{
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+.father{
+    border: 1px solid blue;
+    padding: 20px;
+    width: 100%;
+}
+.uncle{
+    border: 1px solid blue;
+    padding: 20px;
+    width: 100%;
+}
+.aunti{
+    border: 1px solid blue;
+    padding: 20px;
+    width: 100%;
+}
